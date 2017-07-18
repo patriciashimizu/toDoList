@@ -65,6 +65,9 @@
                                                 <state key="normal" title="ADD TASK">
                                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                 </state>
+                                                <connections>
+                                                    <action selector="addTask:" destination="BYZ-38-t0r" eventType="touchUpInside" id="xxT-xG-PP7"/>
+                                                </connections>
                                             </button>
                                         </subviews>
                                     </stackView>
@@ -82,16 +85,6 @@
                                     <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="0GK-Zu-sNG">
                                         <rect key="frame" x="23" y="8" width="368" height="379"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                        <prototypes>
-                                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="cell" id="7Sf-xX-MFr">
-                                                <rect key="frame" x="0.0" y="28" width="368" height="44"/>
-                                                <autoresizingMask key="autoresizingMask"/>
-                                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="7Sf-xX-MFr" id="tTs-xq-tns">
-                                                    <rect key="frame" x="0.0" y="0.0" width="368" height="43"/>
-                                                    <autoresizingMask key="autoresizingMask"/>
-                                                </tableViewCellContentView>
-                                            </tableViewCell>
-                                        </prototypes>
                                         <connections>
                                             <outlet property="dataSource" destination="BYZ-38-t0r" id="dWk-Xh-K9c"/>
                                             <outlet property="delegate" destination="BYZ-38-t0r" id="zOA-L3-rdR"/>
@@ -152,7 +145,7 @@
                                                             <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                                         </state>
                                                         <connections>
-                                                            <segue destination="Fam-lb-zrP" kind="presentation" modalTransitionStyle="crossDissolve" id="NG3-4X-heF"/>
+                                                            <segue destination="Fam-lb-zrP" kind="presentation" id="NG3-4X-heF"/>
                                                         </connections>
                                                     </button>
                                                 </subviews>
@@ -189,16 +182,17 @@
                     </view>
                     <connections>
                         <outlet property="tableView" destination="0GK-Zu-sNG" id="RI5-dC-Ig1"/>
+                        <outlet property="task_TextField" destination="4rE-Lx-ihD" id="UnR-A1-fV4"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="117.39130434782609" y="123.09782608695653"/>
         </scene>
-        <!--View Controller-->
+        <!--Second View Controller-->
         <scene sceneID="buk-tH-zJh">
             <objects>
-                <viewController id="Fam-lb-zrP" sceneMemberID="viewController">
+                <viewController id="Fam-lb-zrP" customClass="SecondViewController" customModule="patriciaToDoList" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="qie-A4-llM"/>
                         <viewControllerLayoutGuide type="bottom" id="ofz-ga-her"/>
@@ -226,7 +220,17 @@
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="U9X-aM-Dlx">
                                 <rect key="frame" x="0.0" y="102" width="414" height="556"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <subviews>
+                                    <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="w33-Si-0Yh">
+                                        <rect key="frame" x="23" y="24" width="367" height="507"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <connections>
+                                            <outlet property="dataSource" destination="Fam-lb-zrP" id="HXF-U0-O5r"/>
+                                            <outlet property="delegate" destination="Fam-lb-zrP" id="XxO-UG-kOk"/>
+                                        </connections>
+                                    </tableView>
+                                </subviews>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="556" id="psJ-RC-Ait"/>
                                 </constraints>
@@ -246,7 +250,7 @@
                                             <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                         </state>
                                         <connections>
-                                            <segue destination="BYZ-38-t0r" kind="presentation" modalTransitionStyle="crossDissolve" id="qyg-aT-sPV"/>
+                                            <segue destination="BYZ-38-t0r" kind="presentation" id="qyg-aT-sPV"/>
                                         </connections>
                                     </button>
                                 </subviews>
