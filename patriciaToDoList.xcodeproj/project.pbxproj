@@ -12,6 +12,7 @@
 		9BC768521F1D5683005E8393 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9BC768501F1D5683005E8393 /* Main.storyboard */; };
 		9BC768541F1D5683005E8393 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9BC768531F1D5683005E8393 /* Assets.xcassets */; };
 		9BC768571F1D5683005E8393 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9BC768551F1D5683005E8393 /* LaunchScreen.storyboard */; };
+		9BC768621F1D5783005E8393 /* logo.png in Resources */ = {isa = PBXBuildFile; fileRef = 9BC768611F1D5783005E8393 /* logo.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -22,6 +23,7 @@
 		9BC768531F1D5683005E8393 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		9BC768561F1D5683005E8393 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		9BC768581F1D5683005E8393 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		9BC768611F1D5783005E8393 /* logo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = logo.png; path = images/logo.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -54,14 +56,31 @@
 		9BC7684B1F1D5683005E8393 /* patriciaToDoList */ = {
 			isa = PBXGroup;
 			children = (
-				9BC7684C1F1D5683005E8393 /* AppDelegate.swift */,
+				9BC768601F1D5760005E8393 /* images */,
+				9BC7685E1F1D5693005E8393 /* support */,
 				9BC7684E1F1D5683005E8393 /* ViewController.swift */,
 				9BC768501F1D5683005E8393 /* Main.storyboard */,
+			);
+			path = patriciaToDoList;
+			sourceTree = "<group>";
+		};
+		9BC7685E1F1D5693005E8393 /* support */ = {
+			isa = PBXGroup;
+			children = (
+				9BC7684C1F1D5683005E8393 /* AppDelegate.swift */,
 				9BC768531F1D5683005E8393 /* Assets.xcassets */,
 				9BC768551F1D5683005E8393 /* LaunchScreen.storyboard */,
 				9BC768581F1D5683005E8393 /* Info.plist */,
 			);
-			path = patriciaToDoList;
+			name = support;
+			sourceTree = "<group>";
+		};
+		9BC768601F1D5760005E8393 /* images */ = {
+			isa = PBXGroup;
+			children = (
+				9BC768611F1D5783005E8393 /* logo.png */,
+			);
+			name = images;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -123,6 +142,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9BC768621F1D5783005E8393 /* logo.png in Resources */,
 				9BC768571F1D5683005E8393 /* LaunchScreen.storyboard in Resources */,
 				9BC768541F1D5683005E8393 /* Assets.xcassets in Resources */,
 				9BC768521F1D5683005E8393 /* Main.storyboard in Resources */,
