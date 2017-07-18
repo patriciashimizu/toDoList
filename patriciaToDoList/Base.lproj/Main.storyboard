@@ -86,8 +86,8 @@
                                             </tableViewCell>
                                         </prototypes>
                                         <connections>
-                                            <outlet property="dataSource" destination="BYZ-38-t0r" id="zqa-YG-fpa"/>
-                                            <outlet property="delegate" destination="BYZ-38-t0r" id="gfW-sb-XwN"/>
+                                            <outlet property="dataSource" destination="BYZ-38-t0r" id="dWk-Xh-K9c"/>
+                                            <outlet property="delegate" destination="BYZ-38-t0r" id="zOA-L3-rdR"/>
                                         </connections>
                                     </tableView>
                                 </subviews>
