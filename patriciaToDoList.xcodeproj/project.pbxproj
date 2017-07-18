@@ -13,6 +13,10 @@
 		9BC768541F1D5683005E8393 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9BC768531F1D5683005E8393 /* Assets.xcassets */; };
 		9BC768571F1D5683005E8393 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9BC768551F1D5683005E8393 /* LaunchScreen.storyboard */; };
 		9BC768621F1D5783005E8393 /* logo.png in Resources */ = {isa = PBXBuildFile; fileRef = 9BC768611F1D5783005E8393 /* logo.png */; };
+		9BD47CDE1F1EA50E00C569DE /* Chalkduster.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 9BD47CDC1F1EA50E00C569DE /* Chalkduster.ttf */; };
+		9BD47CDF1F1EA50E00C569DE /* TravelingTypewriter.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 9BD47CDD1F1EA50E00C569DE /* TravelingTypewriter.ttf */; };
+		9BD47CE11F1EA82200C569DE /* CellClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BD47CE01F1EA82200C569DE /* CellClass.swift */; };
+		9BD47CE31F1EAB8600C569DE /* SecondViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BD47CE21F1EAB8600C569DE /* SecondViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +28,10 @@
 		9BC768561F1D5683005E8393 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		9BC768581F1D5683005E8393 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		9BC768611F1D5783005E8393 /* logo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = logo.png; path = images/logo.png; sourceTree = "<group>"; };
+		9BD47CDC1F1EA50E00C569DE /* Chalkduster.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = Chalkduster.ttf; path = fonts/Chalkduster.ttf; sourceTree = "<group>"; };
+		9BD47CDD1F1EA50E00C569DE /* TravelingTypewriter.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = TravelingTypewriter.ttf; path = fonts/TravelingTypewriter.ttf; sourceTree = "<group>"; };
+		9BD47CE01F1EA82200C569DE /* CellClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CellClass.swift; sourceTree = "<group>"; };
+		9BD47CE21F1EAB8600C569DE /* SecondViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SecondViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,10 +64,13 @@
 		9BC7684B1F1D5683005E8393 /* patriciaToDoList */ = {
 			isa = PBXGroup;
 			children = (
+				9BD47CDB1F1EA4DD00C569DE /* fonts */,
 				9BC768601F1D5760005E8393 /* images */,
 				9BC7685E1F1D5693005E8393 /* support */,
 				9BC7684E1F1D5683005E8393 /* ViewController.swift */,
 				9BC768501F1D5683005E8393 /* Main.storyboard */,
+				9BD47CE01F1EA82200C569DE /* CellClass.swift */,
+				9BD47CE21F1EAB8600C569DE /* SecondViewController.swift */,
 			);
 			path = patriciaToDoList;
 			sourceTree = "<group>";
@@ -81,6 +92,15 @@
 				9BC768611F1D5783005E8393 /* logo.png */,
 			);
 			name = images;
+			sourceTree = "<group>";
+		};
+		9BD47CDB1F1EA4DD00C569DE /* fonts */ = {
+			isa = PBXGroup;
+			children = (
+				9BD47CDC1F1EA50E00C569DE /* Chalkduster.ttf */,
+				9BD47CDD1F1EA50E00C569DE /* TravelingTypewriter.ttf */,
+			);
+			name = fonts;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -142,8 +162,10 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9BD47CDF1F1EA50E00C569DE /* TravelingTypewriter.ttf in Resources */,
 				9BC768621F1D5783005E8393 /* logo.png in Resources */,
 				9BC768571F1D5683005E8393 /* LaunchScreen.storyboard in Resources */,
+				9BD47CDE1F1EA50E00C569DE /* Chalkduster.ttf in Resources */,
 				9BC768541F1D5683005E8393 /* Assets.xcassets in Resources */,
 				9BC768521F1D5683005E8393 /* Main.storyboard in Resources */,
 			);
@@ -156,6 +178,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9BD47CE31F1EAB8600C569DE /* SecondViewController.swift in Sources */,
+				9BD47CE11F1EA82200C569DE /* CellClass.swift in Sources */,
 				9BC7684F1F1D5683005E8393 /* ViewController.swift in Sources */,
 				9BC7684D1F1D5683005E8393 /* AppDelegate.swift in Sources */,
 			);
@@ -319,6 +343,7 @@
 				9BC7685D1F1D5683005E8393 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

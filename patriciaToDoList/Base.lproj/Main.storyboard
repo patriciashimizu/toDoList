@@ -6,10 +6,16 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
+    <customFonts key="customFonts">
+        <array key="TravelingTypewriter.ttf">
+            <string>TravelingTypewriter</string>
+        </array>
+    </customFonts>
     <scenes>
         <!--View Controller-->
         <scene sceneID="tne-QT-ifu">
@@ -44,18 +50,19 @@
                                 <rect key="frame" x="0.0" y="93" width="414" height="128"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="tIO-73-vwY">
-                                        <rect key="frame" x="21" y="24" width="373" height="80"/>
+                                        <rect key="frame" x="21" y="20" width="373" height="88"/>
                                         <subviews>
                                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="4rE-Lx-ihD">
                                                 <rect key="frame" x="0.0" y="0.0" width="373" height="30"/>
                                                 <nil key="textColor"/>
-                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                <fontDescription key="fontDescription" name="TravelingTypewriter" family="Traveling _Typewriter" pointSize="20"/>
                                                 <textInputTraits key="textInputTraits"/>
                                             </textField>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HWF-PD-lWk">
-                                                <rect key="frame" x="0.0" y="50" width="373" height="30"/>
+                                                <rect key="frame" x="0.0" y="50" width="373" height="38"/>
                                                 <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
-                                                <state key="normal" title="Button">
+                                                <fontDescription key="fontDescription" name="Chalkduster" family="Chalkduster" pointSize="20"/>
+                                                <state key="normal" title="ADD TASK">
                                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                 </state>
                                             </button>
@@ -80,7 +87,7 @@
                                                 <rect key="frame" x="0.0" y="28" width="368" height="44"/>
                                                 <autoresizingMask key="autoresizingMask"/>
                                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="7Sf-xX-MFr" id="tTs-xq-tns">
-                                                    <rect key="frame" x="0.0" y="0.0" width="368" height="44"/>
+                                                    <rect key="frame" x="0.0" y="0.0" width="368" height="43"/>
                                                     <autoresizingMask key="autoresizingMask"/>
                                                 </tableViewCellContentView>
                                             </tableViewCell>
@@ -103,21 +110,23 @@
                                 <rect key="frame" x="0.0" y="619" width="414" height="117"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="Vte-ur-Fp5">
-                                        <rect key="frame" x="20" y="18" width="373" height="80"/>
+                                        <rect key="frame" x="20" y="14" width="373" height="88"/>
                                         <subviews>
                                             <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="30" translatesAutoresizingMaskIntoConstraints="NO" id="KrB-n1-kpf">
-                                                <rect key="frame" x="0.0" y="0.0" width="373" height="30"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="373" height="34"/>
                                                 <subviews>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="olh-Rt-3Pz">
-                                                        <rect key="frame" x="0.0" y="0.0" width="171.66666666666666" height="30"/>
-                                                        <color key="backgroundColor" red="0.0" green="0.50196081400000003" blue="0.50196081400000003" alpha="1" colorSpace="calibratedRGB"/>
+                                                        <rect key="frame" x="0.0" y="0.0" width="171.66666666666666" height="34"/>
+                                                        <color key="backgroundColor" red="0.0" green="0.34282619860000002" blue="0.34282619860000002" alpha="1" colorSpace="calibratedRGB"/>
+                                                        <fontDescription key="fontDescription" name="Chalkduster" family="Chalkduster" pointSize="17"/>
                                                         <state key="normal" title="SAVE">
                                                             <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                                         </state>
                                                     </button>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yrr-1G-ga3">
-                                                        <rect key="frame" x="201.66666666666663" y="0.0" width="171.33333333333337" height="30"/>
-                                                        <color key="backgroundColor" red="0.0" green="0.50196081400000003" blue="0.50196081400000003" alpha="1" colorSpace="calibratedRGB"/>
+                                                        <rect key="frame" x="201.66666666666663" y="0.0" width="171.33333333333337" height="34"/>
+                                                        <color key="backgroundColor" red="0.0" green="0.34282619860000002" blue="0.34282619860000002" alpha="1" colorSpace="calibratedRGB"/>
+                                                        <fontDescription key="fontDescription" name="Chalkduster" family="Chalkduster" pointSize="17"/>
                                                         <state key="normal" title="LOAD">
                                                             <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                                         </state>
@@ -125,21 +134,26 @@
                                                 </subviews>
                                             </stackView>
                                             <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="30" translatesAutoresizingMaskIntoConstraints="NO" id="C9v-s9-rH7">
-                                                <rect key="frame" x="0.0" y="50" width="373" height="30"/>
+                                                <rect key="frame" x="0.0" y="54" width="373" height="34"/>
                                                 <subviews>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sFZ-b2-aHd">
-                                                        <rect key="frame" x="0.0" y="0.0" width="171.66666666666666" height="30"/>
-                                                        <color key="backgroundColor" red="0.0" green="0.50196081400000003" blue="0.50196081400000003" alpha="1" colorSpace="calibratedRGB"/>
+                                                        <rect key="frame" x="0.0" y="0.0" width="171.66666666666666" height="34"/>
+                                                        <color key="backgroundColor" red="0.0" green="0.34282619860000002" blue="0.34282619860000002" alpha="1" colorSpace="calibratedRGB"/>
+                                                        <fontDescription key="fontDescription" name="Chalkduster" family="Chalkduster" pointSize="17"/>
                                                         <state key="normal" title="RESET">
                                                             <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                                         </state>
                                                     </button>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Qrp-tD-SQl">
-                                                        <rect key="frame" x="201.66666666666663" y="0.0" width="171.33333333333337" height="30"/>
-                                                        <color key="backgroundColor" red="0.0" green="0.50196081400000003" blue="0.50196081400000003" alpha="1" colorSpace="calibratedRGB"/>
+                                                        <rect key="frame" x="201.66666666666663" y="0.0" width="171.33333333333337" height="34"/>
+                                                        <color key="backgroundColor" red="0.0" green="0.34282619860000002" blue="0.34282619860000002" alpha="1" colorSpace="calibratedRGB"/>
+                                                        <fontDescription key="fontDescription" name="Chalkduster" family="Chalkduster" pointSize="17"/>
                                                         <state key="normal" title="VIEW LIST">
                                                             <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                                         </state>
+                                                        <connections>
+                                                            <segue destination="Fam-lb-zrP" kind="presentation" modalTransitionStyle="crossDissolve" id="NG3-4X-heF"/>
+                                                        </connections>
                                                     </button>
                                                 </subviews>
                                             </stackView>
@@ -173,10 +187,93 @@
                             <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="n8p-gC-50a" secondAttribute="bottom" id="sUA-Cl-v0T"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="tableView" destination="0GK-Zu-sNG" id="RI5-dC-Ig1"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="117.39130434782609" y="123.09782608695653"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="buk-tH-zJh">
+            <objects>
+                <viewController id="Fam-lb-zrP" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="qie-A4-llM"/>
+                        <viewControllerLayoutGuide type="bottom" id="ofz-ga-her"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="bcY-66-fQa">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Ine-9v-3oR">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="94"/>
+                                <subviews>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="logo.png" translatesAutoresizingMaskIntoConstraints="NO" id="5ll-85-pgu">
+                                        <rect key="frame" x="82" y="27" width="251" height="67"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="251" id="dsG-ti-oMr"/>
+                                            <constraint firstAttribute="height" constant="67" id="wCh-Fs-96p"/>
+                                        </constraints>
+                                    </imageView>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="94" id="fuL-YJ-yal"/>
+                                    <constraint firstItem="5ll-85-pgu" firstAttribute="centerY" secondItem="Ine-9v-3oR" secondAttribute="centerY" constant="13.5" id="nEY-yV-8QE"/>
+                                    <constraint firstItem="5ll-85-pgu" firstAttribute="centerX" secondItem="Ine-9v-3oR" secondAttribute="centerX" id="rqP-dd-d0D"/>
+                                </constraints>
+                            </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="U9X-aM-Dlx">
+                                <rect key="frame" x="0.0" y="102" width="414" height="556"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="556" id="psJ-RC-Ait"/>
+                                </constraints>
+                            </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="vH6-3f-FpT">
+                                <rect key="frame" x="0.0" y="657" width="414" height="79"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LHV-fR-n3e">
+                                        <rect key="frame" x="15" y="22" width="171" height="34"/>
+                                        <color key="backgroundColor" red="0.0" green="0.34282619860000002" blue="0.34282619860000002" alpha="1" colorSpace="calibratedRGB"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="34" id="01j-UF-yZS"/>
+                                            <constraint firstAttribute="width" constant="171" id="ISZ-Z8-OVL"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" name="Chalkduster" family="Chalkduster" pointSize="17"/>
+                                        <state key="normal" title="BACK">
+                                            <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                        </state>
+                                        <connections>
+                                            <segue destination="BYZ-38-t0r" kind="presentation" modalTransitionStyle="crossDissolve" id="qyg-aT-sPV"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstItem="LHV-fR-n3e" firstAttribute="centerY" secondItem="vH6-3f-FpT" secondAttribute="centerY" id="AWV-FT-O5r"/>
+                                    <constraint firstAttribute="width" secondItem="vH6-3f-FpT" secondAttribute="height" multiplier="414:79" id="PaH-Su-yY6"/>
+                                    <constraint firstItem="LHV-fR-n3e" firstAttribute="leading" secondItem="vH6-3f-FpT" secondAttribute="leading" constant="15" id="w60-Zq-B1f"/>
+                                </constraints>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" red="0.78823529410000004" green="0.83529411760000005" blue="0.80392156859999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="U9X-aM-Dlx" firstAttribute="top" secondItem="Ine-9v-3oR" secondAttribute="bottom" constant="8" id="4ij-Tt-JbW"/>
+                            <constraint firstItem="ofz-ga-her" firstAttribute="top" secondItem="vH6-3f-FpT" secondAttribute="bottom" id="9xP-7r-qDN"/>
+                            <constraint firstAttribute="trailing" secondItem="U9X-aM-Dlx" secondAttribute="trailing" id="F5Z-Vz-6oG"/>
+                            <constraint firstItem="Ine-9v-3oR" firstAttribute="top" secondItem="bcY-66-fQa" secondAttribute="top" id="Ku1-Gh-KJX"/>
+                            <constraint firstItem="Ine-9v-3oR" firstAttribute="leading" secondItem="bcY-66-fQa" secondAttribute="leading" id="UyQ-uM-UyE"/>
+                            <constraint firstAttribute="trailing" secondItem="vH6-3f-FpT" secondAttribute="trailing" id="Vc6-iO-GpV"/>
+                            <constraint firstAttribute="trailing" secondItem="Ine-9v-3oR" secondAttribute="trailing" id="ac3-8E-aor"/>
+                            <constraint firstItem="U9X-aM-Dlx" firstAttribute="leading" secondItem="bcY-66-fQa" secondAttribute="leading" id="bk6-cP-uUu"/>
+                            <constraint firstItem="vH6-3f-FpT" firstAttribute="leading" secondItem="bcY-66-fQa" secondAttribute="leading" id="uph-Kx-Ums"/>
+                        </constraints>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Rc1-VM-Z82" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="824.63768115942037" y="122.28260869565219"/>
         </scene>
     </scenes>
     <resources>

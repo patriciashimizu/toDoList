@@ -1,15 +1,9 @@
-//
-//  ViewController.swift
-//  patriciaToDoList
-//
-//  Created by eleves on 2017-07-17.
-//  Copyright © 2017 eleves. All rights reserved.
-//
-
+//==============================================
 import UIKit
-
+//==============================================
 class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSource  {
 
+    @IBOutlet weak var tableView: UITableView!
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
@@ -27,11 +21,12 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     }
     //---------------------
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell:UITableViewCell = UITableViewCell(style:UITableViewCellStyle.default, reuseIdentifier:"proto")
-        cell.textLabel!.text = "Hello World"
-        cell.textLabel?.textColor = UIColor.black
-        cell.backgroundColor = UIColor.clear
-        return cell
+        //let cell:UITableViewCell = UITableViewCell(style:UITableViewCellStyle.default, reuseIdentifier:"proto")
+        let cell = self.tableView.dequeueReusableCell(withIdentifier: "cell")
+        cell?.textLabel!.text = "Hello World"
+        cell?.textLabel?.textColor = UIColor.black
+        cell?.backgroundColor = UIColor.clear
+        return cell!
     }
     //---------------------
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
@@ -46,4 +41,4 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     }
     //---------------------
 }
-
+//==============================================
