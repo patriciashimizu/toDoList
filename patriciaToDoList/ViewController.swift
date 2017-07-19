@@ -47,9 +47,21 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         return cell
     }
     //---------------------
+    func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
+        if addObject.values[indexPath.row] {
+            cell.backgroundColor = UIColor(red: 118.0/255, green: 137.0/255, blue: 124.0/255, alpha: 1.0)
+        }
+    }
+    //---------------------
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let selectedCell:UITableViewCell = tableView.cellForRow(at: indexPath as IndexPath)!
         selectedCell.contentView.backgroundColor = UIColor.darkGray
+        if !addObject.values[indexPath.row] {
+            addObject.values[indexPath.row] = true
+        } else {
+            addObject.values[indexPath.row] = false
+        }
+        tableView.reloadData()
     }
     //---------------------
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {

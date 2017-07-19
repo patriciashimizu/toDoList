@@ -28,6 +28,7 @@ class SecondViewController: UIViewController, UITableViewDelegate, UITableViewDa
         let cell:UITableViewCell = UITableViewCell(style:UITableViewCellStyle.default, reuseIdentifier:"proto")
         cell.textLabel!.text = dataTableFirstView[indexPath.row]
         cell.textLabel?.textColor = UIColor.black
+        cell.textLabel?.font = UIFont(name:"TravelingTypewriter", size:18)
         cell.backgroundColor = UIColor.clear
         return cell
     }
