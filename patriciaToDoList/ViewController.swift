@@ -49,7 +49,8 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     //---------------------
     func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
         if addObject.values[indexPath.row] {
-            cell.backgroundColor = UIColor(red: 118.0/255, green: 137.0/255, blue: 124.0/255, alpha: 1.0)
+            //cell.backgroundColor = UIColor(red: 118.0/255, green: 137.0/255, blue: 124.0/255, alpha: 1.0)
+            cell.backgroundColor = UIColor.lightGray
         }
     }
     //---------------------
