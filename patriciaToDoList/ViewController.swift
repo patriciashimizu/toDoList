@@ -7,12 +7,21 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     @IBOutlet weak var task_TextField: UITextField!
     //---------------------
     let addObject = Add()
+    let saveObject = Save()
     //---------------------
     @IBAction func addTask(_ sender: UIButton) {
         addObject.addValue(keyToAdd: task_TextField.text!)
+        addObject.parseDict()
         tableView.reloadData()
         task_TextField.text = ""
     }
+    //---------------------
+    @IBAction func saveTask(_ sender: UIButton) {
+        saveObject.addValue(keyToAdd: task_TextField.text!)
+        tableView.reloadData()
+        task_TextField.text = ""
+    }
+    
     //---------------------
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -24,13 +33,16 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     //---------------------
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         tableView.backgroundColor = UIColor.clear
-        return addObject.dictionnary.count
+        //return saveObject.dictionnary.count
+        return addObject.tableauAdd.count
     }
     //---------------------
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell:UITableViewCell = UITableViewCell(style:UITableViewCellStyle.default, reuseIdentifier:"proto")
+        //cell.textLabel!.text = saveObject.keys[indexPath.row]
         cell.textLabel!.text = addObject.keys[indexPath.row]
         cell.textLabel?.textColor = UIColor.black
+        cell.textLabel?.font = UIFont(name:"TravelingTypewriter", size:18)
         cell.backgroundColor = UIColor.clear
         return cell
     }
@@ -42,7 +54,8 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     //---------------------
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == UITableViewCellEditingStyle.delete {
-            addObject.removeValue(keyToRemove: addObject.keys[indexPath.row])
+            //saveObject.removeValue(keyToRemove: saveObject.keys[indexPath.row])
+            addObject.removeValue(keyToRemove: saveObject.keys[indexPath.row])
             tableView.deleteRows(at: [indexPath as IndexPath], with: UITableViewRowAnimation.automatic)
         }
     }
