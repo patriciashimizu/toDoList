@@ -12,6 +12,9 @@ class SecondViewController: UIViewController, UITableViewDelegate, UITableViewDa
         for(b, _) in Singleton.singletonInstance.dictionnary{
             dataTableFirstView.append(b)
         }
+        /*for(b, _) in Singleton.singletonInstance.dictionnary{
+            dataTableFirstView.append(b)
+        }*/
         
     }
     //---------------------------

@@ -8,6 +8,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     //---------------------
     let addObject = Add()
     let saveObject = Save()
+    //var selectedCells: [Bool] = []
     //---------------------
     @IBAction func addTask(_ sender: UIButton) {
         addObject.addValue(keyToAdd: task_TextField.text!)
@@ -21,7 +22,10 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         tableView.reloadData()
         task_TextField.text = ""
     }
-    
+    //---------------------
+    @IBAction func viewListSelectedTasks(_ sender: UIButton) {
+        print("TESTE")
+    }
     //---------------------
     override func viewDidLoad() {
         super.viewDidLoad()
