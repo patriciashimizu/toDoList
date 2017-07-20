@@ -31,7 +31,6 @@
 		9BD47CE31F1EAB8600C569DE /* SecondViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BD47CE21F1EAB8600C569DE /* SecondViewController.swift */; };
 		9BD47CE51F1EB4BE00C569DE /* Singleton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BD47CE41F1EB4BE00C569DE /* Singleton.swift */; };
 		9BD47CE71F1EB50F00C569DE /* Add.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BD47CE61F1EB50F00C569DE /* Add.swift */; };
-		9BEB46B81F2006DE002401C4 /* Save.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BEB46B71F2006DE002401C4 /* Save.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -61,7 +60,6 @@
 		9BD47CE21F1EAB8600C569DE /* SecondViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SecondViewController.swift; sourceTree = "<group>"; };
 		9BD47CE41F1EB4BE00C569DE /* Singleton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Singleton.swift; sourceTree = "<group>"; };
 		9BD47CE61F1EB50F00C569DE /* Add.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Add.swift; sourceTree = "<group>"; };
-		9BEB46B71F2006DE002401C4 /* Save.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Save.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -101,7 +99,6 @@
 				9BC768501F1D5683005E8393 /* Main.storyboard */,
 				9BD47CE21F1EAB8600C569DE /* SecondViewController.swift */,
 				9BD47CE41F1EB4BE00C569DE /* Singleton.swift */,
-				9BEB46B71F2006DE002401C4 /* Save.swift */,
 				9BD47CE61F1EB50F00C569DE /* Add.swift */,
 			);
 			path = patriciaToDoList;
@@ -236,7 +233,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				9BEB46B81F2006DE002401C4 /* Save.swift in Sources */,
 				9BD47CE31F1EAB8600C569DE /* SecondViewController.swift in Sources */,
 				9BD47CE51F1EB4BE00C569DE /* Singleton.swift in Sources */,
 				9BC7684F1F1D5683005E8393 /* ViewController.swift in Sources */,

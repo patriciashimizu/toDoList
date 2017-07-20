@@ -7,7 +7,8 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     @IBOutlet weak var task_TextField: UITextField!
     //---------------------
     let addObject = Add()
-    let saveObject = Save()
+    var titleAlert: String!
+    var messageAlert: String!
     //var selectedCells: [Bool] = []
     //---------------------
     @IBAction func addTask(_ sender: UIButton) {
@@ -18,13 +19,60 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     }
     //---------------------
     @IBAction func saveTask(_ sender: UIButton) {
-        saveObject.addTable(tableToAdd: addObject.tableAdd)
-        tableView.reloadData()
-        task_TextField.text = ""
+        titleAlert = "Save"
+        messageAlert = "Do you really want to replace the online database for this one?"
+        showAlert(title: titleAlert, message: messageAlert)
+    }
+    //---------------------
+    @IBAction func load(_ sender: UIButton) {
+        titleAlert = "Load"
+        messageAlert = "Do you really want to load the online database and replace this one?"
+        showAlert(title: titleAlert, message: messageAlert)
+        
     }
     //---------------------
     @IBAction func viewListSelectedTasks(_ sender: UIButton) {
         //print("TESTE")
+    }
+    //---------------------
+    @IBAction func reset(_ sender: UIButton) {
+        titleAlert = "Reset"
+        messageAlert = "Do you really want to reset everything?"
+        showAlert(title: titleAlert, message: messageAlert)
+    }
+    //---------------------
+    func showAlert(title: String, message: String) {
+        let alert = UIAlertController(title: title, message: message, preferredStyle: UIAlertControllerStyle.alert)
+        alert.addAction(UIAlertAction(title: "Yes", style: .default, handler: { (action: UIAlertAction!) in
+            if title == "Save" {
+                self.replaceDatabaseOnline()
+            }
+            else if title == "Load" {
+                self.downloadDatabaseOnline()
+            }
+            else if title == "Reset" {
+                self.unselectCellsTable()
+            }
+            
+        }))
+        
+        alert.addAction(UIAlertAction(title: "No", style: .cancel, handler: { (action: UIAlertAction!) in
+            
+        }))
+        
+        present(alert, animated: true, completion: nil)
+    }
+    //---------------------
+    func replaceDatabaseOnline() {
+        
+    }
+    //---------------------
+    func downloadDatabaseOnline() {
+        
+    }
+    //---------------------
+    func unselectCellsTable() {
+        
     }
     //---------------------
     override func viewDidLoad() {
@@ -38,7 +86,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         tableView.backgroundColor = UIColor.clear
         //return saveObject.dictionnary.count
-        return addObject.tableAdd.count
+        return addObject.dictionnary.count
     }
     //---------------------
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -72,7 +120,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == UITableViewCellEditingStyle.delete {
             //saveObject.removeValue(keyToRemove: saveObject.keys[indexPath.row])
-            addObject.removeValue(keyToRemove: saveObject.keys[indexPath.row])
+            addObject.removeValue(keyToRemove: addObject.keys[indexPath.row])
             tableView.deleteRows(at: [indexPath as IndexPath], with: UITableViewRowAnimation.automatic)
         }
     }
