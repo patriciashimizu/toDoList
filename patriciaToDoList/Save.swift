@@ -25,22 +25,16 @@ class Save {
         }
     }
     //---------------------------
-    func addValue(keyToAdd: String) {
-        dictionnary[keyToAdd] = false
-        saveToSingleton()
-    }
-    //---------------------------
-    func removeValue(keyToRemove: String) {
-        dictionnary[keyToRemove] = nil
-        saveToSingleton()
-    }
-    //---------------------------
-    func saveToSingleton() {
-        parseDict()
-        Singleton.singletonInstance.dictionnary = dictionnary
+    func addTable(tableToAdd: [String: Bool]) {
+        keys = []
+        values = []
+        for (k, v) in tableToAdd {
+            keys.append(k)
+            values.append(v)
+        }
+        Singleton.singletonInstance.dictionnary = tableToAdd
         Singleton.singletonInstance.saveData()
     }
     //---------------------------
-
 }
 //==============================

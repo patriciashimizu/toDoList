@@ -3,15 +3,15 @@ import Foundation
 //==============================
 class Add {
     //---------------------------
-    var tableauAdd: [String: Bool] = [:]
+    var tableAdd: [String: Bool] = [:]
     var keys: [String] = []
     var values: [Bool] = []
     //---------------------------
     init() {
         if let dict = Singleton.singletonInstance.dictionnary {
-            tableauAdd = dict
+            tableAdd = dict
         } else {
-            tableauAdd = [:]
+            tableAdd = [:]
         }
         parseDict()
     }
@@ -19,18 +19,18 @@ class Add {
     func parseDict() {
         keys = []
         values = []
-        for (k, v) in tableauAdd {
+        for (k, v) in tableAdd {
             keys.append(k)
             values.append(v)
         }
     }
     //---------------------------
     func addValue(keyToAdd: String) {
-        tableauAdd[keyToAdd] = false
+        tableAdd[keyToAdd] = false
     }
     //---------------------------
     func removeValue(keyToRemove: String) {
-        tableauAdd[keyToRemove] = nil
+        tableAdd[keyToRemove] = nil
     }
     //---------------------------
 }

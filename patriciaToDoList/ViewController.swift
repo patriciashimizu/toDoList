@@ -18,13 +18,13 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     }
     //---------------------
     @IBAction func saveTask(_ sender: UIButton) {
-        saveObject.addValue(keyToAdd: task_TextField.text!)
+        saveObject.addTable(tableToAdd: addObject.tableAdd)
         tableView.reloadData()
         task_TextField.text = ""
     }
     //---------------------
     @IBAction func viewListSelectedTasks(_ sender: UIButton) {
-        print("TESTE")
+        //print("TESTE")
     }
     //---------------------
     override func viewDidLoad() {
@@ -38,7 +38,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         tableView.backgroundColor = UIColor.clear
         //return saveObject.dictionnary.count
-        return addObject.tableauAdd.count
+        return addObject.tableAdd.count
     }
     //---------------------
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
