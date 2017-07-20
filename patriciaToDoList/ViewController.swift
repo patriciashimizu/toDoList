@@ -64,15 +64,73 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     }
     //---------------------
     func replaceDatabaseOnline() {
+        var urlToSend = "http://localhost/dashboard/shimizu/json_php/add.php?json=["
+        var counter = 0
+        let total = addObject.dictionnary.count
+        for (a, b) in addObject.dictionnary {
+            let noSpaces = replaceChars(originalStr: a, what: " ", byWhat: "_")
+            counter += 1
+            if counter < total {
+                urlToSend += "/\(noSpaces)/,/\(b)/!"
+            } else {
+                urlToSend += "/\(noSpaces)/,/\(b)/"
+            }
+        }
+        urlToSend += "]"
         
+        let session = URLSession.shared
+        let urlString = urlToSend
+        let url = NSURL(string: urlString)
+        let request = NSURLRequest(url: url! as URL)
+        let dataTask = session.dataTask(with: request as URLRequest) {
+            (data:Data?, response:URLResponse?, error:Error?) -> Void in
+        }
+        dataTask.resume()
     }
     //---------------------
     func downloadDatabaseOnline() {
+        let requestURL: NSURL = NSURL(string: "http://localhost/dashboard/shimizu/json_php/data.json")!
+        let urlRequest: NSMutableURLRequest = NSMutableURLRequest(url:
+            requestURL as URL)
+        let session = URLSession.shared
         
+        let task = session.dataTask(with: urlRequest as URLRequest) {
+            (data, response, error) -> Void in
+            
+            let httpResponse = response as! HTTPURLResponse
+            let statusCode = httpResponse.statusCode
+            
+            if (statusCode == 200) {
+                print("Tout fonctionne correctement...")
+                do{
+                    let json = try JSONSerialization.jsonObject(with:
+                        data!, options:.allowFragments)
+                    print(json)
+                    //table
+                    let temp: [String: String] = json as! [String : String]
+                    print(temp)
+                    
+                    //code
+                    
+                                        
+                    
+                }catch {
+                    print("Erreur Json: \(error)")
+                }
+                
+                
+                
+            }
+        }
+        task.resume()
     }
     //---------------------
     func unselectCellsTable() {
-        
+        //addObject.values = [false]
+    }
+    //---------------------
+    func replaceChars(originalStr: String, what: String, byWhat: String) -> String {
+        return originalStr.replacingOccurrences(of: what, with: byWhat)
     }
     //---------------------
     override func viewDidLoad() {
@@ -85,13 +143,11 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     //---------------------
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         tableView.backgroundColor = UIColor.clear
-        //return saveObject.dictionnary.count
         return addObject.dictionnary.count
     }
     //---------------------
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell:UITableViewCell = UITableViewCell(style:UITableViewCellStyle.default, reuseIdentifier:"proto")
-        //cell.textLabel!.text = saveObject.keys[indexPath.row]
         cell.textLabel!.text = addObject.keys[indexPath.row]
         cell.textLabel?.textColor = UIColor.black
         cell.textLabel?.font = UIFont(name:"TravelingTypewriter", size:18)
@@ -119,7 +175,6 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     //---------------------
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == UITableViewCellEditingStyle.delete {
-            //saveObject.removeValue(keyToRemove: saveObject.keys[indexPath.row])
             addObject.removeValue(keyToRemove: addObject.keys[indexPath.row])
             tableView.deleteRows(at: [indexPath as IndexPath], with: UITableViewRowAnimation.automatic)
         }
