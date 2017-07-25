@@ -28,11 +28,10 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         titleAlert = "Load"
         messageAlert = "Do you really want to load the online database and replace this one?"
         showAlert(title: titleAlert, message: messageAlert)
-        
     }
     //---------------------
     @IBAction func viewListSelectedTasks(_ sender: UIButton) {
-        //print("TESTE")
+        
     }
     //---------------------
     @IBAction func reset(_ sender: UIButton) {
@@ -51,7 +50,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
                 self.downloadDatabaseOnline()
             }
             else if title == "Reset" {
-                self.unselectCellsTable()
+                self.deselectCellsTable()
             }
             
         }))
@@ -106,11 +105,24 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
                     let json = try JSONSerialization.jsonObject(with:
                         data!, options:.allowFragments)
                     print(json)
+                    
                     //table
                     let temp: [String: String] = json as! [String : String]
                     print(temp)
                     
                     //code
+                    var keys: [String] = []
+                    var values: [Bool] = []
+                    
+                    
+                    keys = []
+                    values = []
+                    for (k, v) in temp {
+                        keys.append(k)
+                        values.append(Bool(v)!)
+                        //print(v)
+                        print(k)
+                    }
                     
                                         
                     
@@ -125,8 +137,16 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         task.resume()
     }
     //---------------------
-    func unselectCellsTable() {
-        //addObject.values = [false]
+
+
+    //---------------------
+    func deselectCellsTable() {
+        for i in 0..<addObject.dictionnary.count {
+            addObject.values[i] = false
+            tableView.backgroundColor = UIColor.clear
+        }
+        //print(addObject.values)
+        tableView.reloadData()
     }
     //---------------------
     func replaceChars(originalStr: String, what: String, byWhat: String) -> String {
@@ -134,6 +154,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     }
     //---------------------
     override func viewDidLoad() {
+        //print(addObject.dictionnary)
         super.viewDidLoad()
     }
     //---------------------
@@ -167,11 +188,21 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         selectedCell.contentView.backgroundColor = UIColor.darkGray
         if !addObject.values[indexPath.row] {
             addObject.values[indexPath.row] = true
+            
+            print(addObject.values)
+            
         } else {
             addObject.values[indexPath.row] = false
+            
+            print(addObject.values)
+            
         }
         tableView.reloadData()
     }
+    
+    //---------------------
+
+
     //---------------------
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == UITableViewCellEditingStyle.delete {

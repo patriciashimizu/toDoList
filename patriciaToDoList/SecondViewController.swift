@@ -8,13 +8,18 @@ class SecondViewController: UIViewController, UITableViewDelegate, UITableViewDa
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        dataTableFirstView.remove(at: 0)
+        /*dataTableFirstView.remove(at: 0)
         for(b, _) in Singleton.singletonInstance.dictionnary{
             dataTableFirstView.append(b)
-        }
-        /*for(b, _) in Singleton.singletonInstance.dictionnary{
-            dataTableFirstView.append(b)
         }*/
+        
+        dataTableFirstView.remove(at: 0)
+        for(b, a) in Singleton.singletonInstance.dictionnary{
+            if a == false {
+                dataTableFirstView.append(b)
+            }
+            
+        }
         
     }
     //---------------------------
