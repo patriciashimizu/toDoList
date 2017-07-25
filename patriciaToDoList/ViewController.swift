@@ -121,7 +121,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
                         keys.append(k)
                         values.append(Bool(v)!)
                         //print(v)
-                        print(k)
+                        //print(k)
                     }
                     
                                         
@@ -142,7 +142,6 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
             addObject.values[i] = false
             tableView.backgroundColor = UIColor.clear
         }
-        print(addObject.values)
         tableView.reloadData()
     }
     //---------------------
@@ -202,20 +201,14 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         if !addObject.values[indexPath.row] {
             addObject.values[indexPath.row] = true
             addObject.saveValueToSingleton()
-            //print(addObject.values)
             
         } else {
             addObject.values[indexPath.row] = false
-            //addObject.saveValueToSingleton()
-            print(addObject.values)
+            addObject.saveValueToSingleton()
             
         }
         tableView.reloadData()
     }
-    
-    //---------------------
-
-
     //---------------------
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == UITableViewCellEditingStyle.delete {
