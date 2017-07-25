@@ -31,7 +31,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     }
     //---------------------
     @IBAction func viewListSelectedTasks(_ sender: UIButton) {
-        
+
     }
     //---------------------
     @IBAction func reset(_ sender: UIButton) {
@@ -137,15 +137,12 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         task.resume()
     }
     //---------------------
-
-
-    //---------------------
     func deselectCellsTable() {
         for i in 0..<addObject.dictionnary.count {
             addObject.values[i] = false
             tableView.backgroundColor = UIColor.clear
         }
-        //print(addObject.values)
+        print(addObject.values)
         tableView.reloadData()
     }
     //---------------------
@@ -154,12 +151,28 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     }
     //---------------------
     override func viewDidLoad() {
-        //print(addObject.dictionnary)
+        
+        setValuesFalse()
         super.viewDidLoad()
+        
     }
     //---------------------
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
+    }
+    //---------------------
+    func setValuesFalse() {
+        for (k, _) in Singleton.singletonInstance.dictionnary {
+            Singleton.singletonInstance.dictionnary.updateValue(false, forKey: k)
+        }
+        
+        for (k, _) in addObject.dictionnary {
+            addObject.dictionnary.updateValue(false, forKey: k)
+        }
+        
+        for i in 0..<addObject.values.count {
+            addObject.values[i] = false
+        }
     }
     //---------------------
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -188,12 +201,12 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         selectedCell.contentView.backgroundColor = UIColor.darkGray
         if !addObject.values[indexPath.row] {
             addObject.values[indexPath.row] = true
-            
-            print(addObject.values)
+            addObject.saveValueToSingleton()
+            //print(addObject.values)
             
         } else {
             addObject.values[indexPath.row] = false
-            
+            //addObject.saveValueToSingleton()
             print(addObject.values)
             
         }

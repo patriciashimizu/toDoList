@@ -41,5 +41,23 @@ class Add {
         Singleton.singletonInstance.saveData()
     }
     //---------------------------
+    func saveValueToSingleton() {
+        var i = 0
+        
+        for (k, _) in dictionnary {
+            if values[i] == true {
+                dictionnary.updateValue(true, forKey: k)
+            }
+            else {
+                dictionnary.updateValue(false, forKey: k)
+            }
+            i += 1
+        }
+
+        Singleton.singletonInstance.dictionnary = dictionnary
+        Singleton.singletonInstance.saveData()
+    }
+    
 }
+
 //==============================

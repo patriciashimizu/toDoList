@@ -6,21 +6,20 @@ class SecondViewController: UIViewController, UITableViewDelegate, UITableViewDa
     var dataTableFirstView = [""]
     //---------------------
     override func viewDidLoad() {
-        super.viewDidLoad()
-
-        /*dataTableFirstView.remove(at: 0)
-        for(b, _) in Singleton.singletonInstance.dictionnary{
-            dataTableFirstView.append(b)
-        }*/
-        
         dataTableFirstView.remove(at: 0)
         for(b, a) in Singleton.singletonInstance.dictionnary{
-            if a == false {
+            if a == true {
                 dataTableFirstView.append(b)
             }
             
         }
-        
+        super.viewDidLoad()
+    }
+    //---------------------------
+    @IBAction func back(_ sender: UIButton) {
+        for (k, _) in Singleton.singletonInstance.dictionnary {
+            Singleton.singletonInstance.dictionnary.updateValue(false, forKey: k)
+        }
     }
     //---------------------------
     override func didReceiveMemoryWarning() {
@@ -48,6 +47,7 @@ class SecondViewController: UIViewController, UITableViewDelegate, UITableViewDa
     //---------------------
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == UITableViewCellEditingStyle.delete {
+            dataTableFirstView.remove(at: indexPath.row)
             tableView.deleteRows(at: [indexPath as IndexPath], with: UITableViewRowAnimation.automatic)
         }
     }
