@@ -31,7 +31,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     }
     //---------------------
     @IBAction func viewListSelectedTasks(_ sender: UIButton) {
-
+        
     }
     //---------------------
     @IBAction func reset(_ sender: UIButton) {
@@ -63,10 +63,10 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     }
     //---------------------
     func replaceDatabaseOnline() {
-        var urlToSend = "http://localhost/dashboard/shimizu/json_php/add.php?json=["
+        var urlToSend = "http://localhost/dashboard/shimizu/tp3_toDoList/add.php?json=["
         var counter = 0
-        let total = addObject.dictionnary.count
-        for (a, b) in addObject.dictionnary {
+        let total = addObject.dictionary.count
+        for (a, b) in addObject.dictionary {
             let noSpaces = replaceChars(originalStr: a, what: " ", byWhat: "_")
             counter += 1
             if counter < total {
@@ -88,7 +88,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     }
     //---------------------
     func downloadDatabaseOnline() {
-        let requestURL: NSURL = NSURL(string: "http://localhost/dashboard/shimizu/json_php/data.json")!
+        let requestURL: NSURL = NSURL(string: "http://localhost/dashboard/shimizu/tp3_toDoList/data.json")!
         let urlRequest: NSMutableURLRequest = NSMutableURLRequest(url:
             requestURL as URL)
         let session = URLSession.shared
@@ -106,39 +106,41 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
                         data!, options:.allowFragments)
                     print(json)
                     
-                    //table
-                    let temp: [String: String] = json as! [String : String]
-                    print(temp)
-                    
-                    //code
-                    var keys: [String] = []
-                    var values: [Bool] = []
-                    
-                    
-                    keys = []
-                    values = []
-                    for (k, v) in temp {
-                        keys.append(k)
-                        values.append(Bool(v)!)
-                        //print(v)
-                        //print(k)
+                    //Dictionary
+                    let jsonString: [String: String] = json as! [String : String]
+                    var jsonToBool: [String: Bool] = [:]
+
+                    for (k, v) in jsonString {
+                        
+                        
+                        if v == "false" {
+                            jsonToBool.updateValue(false, forKey: k)
+                            
+                        } else {
+                            jsonToBool.updateValue(true, forKey: k)
+                        }
+                        
                     }
                     
-                                        
+                    print("jsonToBool: \(jsonToBool)")
                     
+                    
+                    self.addObject.dictionary = jsonToBool
+                    self.addObject.saveToSingleton()
+                    
+                    DispatchQueue.main.async {
+                        self.tableView.reloadData()
+                    }
                 }catch {
                     print("Erreur Json: \(error)")
                 }
-                
-                
-                
             }
         }
         task.resume()
     }
     //---------------------
     func deselectCellsTable() {
-        for i in 0..<addObject.dictionnary.count {
+        for i in 0..<addObject.dictionary.count {
             addObject.values[i] = false
             tableView.backgroundColor = UIColor.clear
         }
@@ -161,12 +163,12 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     }
     //---------------------
     func setValuesFalse() {
-        for (k, _) in Singleton.singletonInstance.dictionnary {
-            Singleton.singletonInstance.dictionnary.updateValue(false, forKey: k)
+        for (k, _) in Singleton.singletonInstance.dictionary {
+            Singleton.singletonInstance.dictionary.updateValue(false, forKey: k)
         }
         
-        for (k, _) in addObject.dictionnary {
-            addObject.dictionnary.updateValue(false, forKey: k)
+        for (k, _) in addObject.dictionary {
+            addObject.dictionary.updateValue(false, forKey: k)
         }
         
         for i in 0..<addObject.values.count {
@@ -176,7 +178,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     //---------------------
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         tableView.backgroundColor = UIColor.clear
-        return addObject.dictionnary.count
+        return addObject.dictionary.count
     }
     //---------------------
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {

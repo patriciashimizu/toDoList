@@ -3,15 +3,15 @@ import Foundation
 //==============================
 class Add {
     //---------------------------
-    var dictionnary: [String: Bool]!
+    var dictionary: [String: Bool]!
     var keys: [String] = []
     var values: [Bool] = []
     //---------------------------
     init() {
-        if let dict = Singleton.singletonInstance.dictionnary {
-            dictionnary = dict
+        if let dict = Singleton.singletonInstance.dictionary {
+            dictionary = dict
         } else {
-            dictionnary = [:]
+            dictionary = [:]
         }
         parseDict()
     }
@@ -19,42 +19,42 @@ class Add {
     func parseDict() {
         keys = []
         values = []
-        for (k, v) in dictionnary {
+        for (k, v) in dictionary {
             keys.append(k)
             values.append(v)
         }
     }
     //---------------------------
     func addValue(keyToAdd: String) {
-        dictionnary[keyToAdd] = false
+        dictionary[keyToAdd] = false
         saveToSingleton()
     }
     //---------------------------
     func removeValue(keyToRemove: String) {
-        dictionnary[keyToRemove] = nil
+        dictionary[keyToRemove] = nil
         saveToSingleton()
     }
     //---------------------------
     func saveToSingleton() {
         parseDict()
-        Singleton.singletonInstance.dictionnary = dictionnary
+        Singleton.singletonInstance.dictionary = dictionary
         Singleton.singletonInstance.saveData()
     }
     //---------------------------
     func saveValueToSingleton() {
         var i = 0
         
-        for (k, _) in dictionnary {
+        for (k, _) in dictionary {
             if values[i] == true {
-                dictionnary.updateValue(true, forKey: k)
+                dictionary.updateValue(true, forKey: k)
             }
             else {
-                dictionnary.updateValue(false, forKey: k)
+                dictionary.updateValue(false, forKey: k)
             }
             i += 1
         }
 
-        Singleton.singletonInstance.dictionnary = dictionnary
+        Singleton.singletonInstance.dictionary = dictionary
         Singleton.singletonInstance.saveData()
     }
     

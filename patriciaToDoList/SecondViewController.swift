@@ -7,7 +7,7 @@ class SecondViewController: UIViewController, UITableViewDelegate, UITableViewDa
     //---------------------
     override func viewDidLoad() {
         dataTableFirstView.remove(at: 0)
-        for(b, a) in Singleton.singletonInstance.dictionnary{
+        for(b, a) in Singleton.singletonInstance.dictionary{
             if a == true {
                 dataTableFirstView.append(b)
             }
@@ -17,8 +17,8 @@ class SecondViewController: UIViewController, UITableViewDelegate, UITableViewDa
     }
     //---------------------------
     @IBAction func back(_ sender: UIButton) {
-        for (k, _) in Singleton.singletonInstance.dictionnary {
-            Singleton.singletonInstance.dictionnary.updateValue(false, forKey: k)
+        for (k, _) in Singleton.singletonInstance.dictionary {
+            Singleton.singletonInstance.dictionary.updateValue(false, forKey: k)
         }
     }
     //---------------------------

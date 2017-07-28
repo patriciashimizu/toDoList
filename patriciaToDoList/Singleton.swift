@@ -4,19 +4,19 @@ import Foundation
 class Singleton {
     //---------------------------
     static let singletonInstance = Singleton()
-    var dictionnary: [String: Bool]!
+    var dictionary: [String: Bool]!
     let userDefault = UserDefaults.standard
     //---------------------------
     init() {
         if userDefault.object(forKey: "data") ==  nil {
-            userDefault.setValue(dictionnary, forKey: "data")
+            userDefault.setValue(dictionary, forKey: "data")
         } else {
-            dictionnary = userDefault.object(forKey: "data") as! [String : Bool]!
+            dictionary = userDefault.object(forKey: "data") as! [String : Bool]!
         }
     }
     //---------------------------
     func saveData() {
-        userDefault.setValue(dictionnary, forKey: "data")
+        userDefault.setValue(dictionary, forKey: "data")
     }
     //---------------------------
 }
