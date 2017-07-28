@@ -9,8 +9,8 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     let addObject = Add()
     var titleAlert: String!
     var messageAlert: String!
-    //var selectedCells: [Bool] = []
     //---------------------
+    // ***** Bouton: ADD TASK
     @IBAction func addTask(_ sender: UIButton) {
         addObject.addValue(keyToAdd: task_TextField.text!)
         addObject.parseDict()
@@ -18,28 +18,47 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         task_TextField.text = ""
     }
     //---------------------
+    // ***** Bouton: SAVE
     @IBAction func saveTask(_ sender: UIButton) {
         titleAlert = "Save"
         messageAlert = "Do you really want to replace the online database for this one?"
         showAlert(title: titleAlert, message: messageAlert)
     }
     //---------------------
+    // ***** Bouton: LOAD
     @IBAction func load(_ sender: UIButton) {
         titleAlert = "Load"
         messageAlert = "Do you really want to load the online database and replace this one?"
         showAlert(title: titleAlert, message: messageAlert)
     }
     //---------------------
+    // ***** Bouton: VIEW LIST
     @IBAction func viewListSelectedTasks(_ sender: UIButton) {
-        
     }
     //---------------------
+    // ***** Bouton: RESET
     @IBAction func reset(_ sender: UIButton) {
         titleAlert = "Reset"
         messageAlert = "Do you really want to reset everything?"
         showAlert(title: titleAlert, message: messageAlert)
     }
     //---------------------
+    override func viewDidLoad() {
+        setValuesFalse()
+        super.viewDidLoad()
+    }
+    //---------------------
+    override func didReceiveMemoryWarning() {
+        super.didReceiveMemoryWarning()
+    }
+    //---------------------
+    // ***** Fonction: showAlert
+    /*
+     *  Fait la création de la boite d’alerte pour les boutons SAVE, LOAD et RESET
+     *  @param title: le titre du bouton
+     *  @param message: le message de l’alerte
+     *
+     */
     func showAlert(title: String, message: String) {
         let alert = UIAlertController(title: title, message: message, preferredStyle: UIAlertControllerStyle.alert)
         alert.addAction(UIAlertAction(title: "Yes", style: .default, handler: { (action: UIAlertAction!) in
@@ -62,6 +81,11 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         present(alert, animated: true, completion: nil)
     }
     //---------------------
+    // ***** Fonction: replaceDatabaseOnline
+    /*
+     *  Sauvegarde des données locaux (de l’utilisateur) dans le serveur
+     *
+     */
     func replaceDatabaseOnline() {
         var urlToSend = "http://localhost/dashboard/shimizu/tp3_toDoList/add.php?json=["
         var counter = 0
@@ -87,6 +111,11 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         dataTask.resume()
     }
     //---------------------
+    // ***** Fonction: downloadDatabaseOnline()
+    /*
+     *  Télécharge les données qui sont dans le serveur à l’ordinateur de l’utilisateur
+     *
+     */
     func downloadDatabaseOnline() {
         let requestURL: NSURL = NSURL(string: "http://localhost/dashboard/shimizu/tp3_toDoList/data.json")!
         let urlRequest: NSMutableURLRequest = NSMutableURLRequest(url:
@@ -104,26 +133,21 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
                 do{
                     let json = try JSONSerialization.jsonObject(with:
                         data!, options:.allowFragments)
-                    print(json)
+                    //print(json)
                     
                     //Dictionary
                     let jsonString: [String: String] = json as! [String : String]
                     var jsonToBool: [String: Bool] = [:]
-
+                    
                     for (k, v) in jsonString {
-                        
-                        
                         if v == "false" {
                             jsonToBool.updateValue(false, forKey: k)
                             
                         } else {
                             jsonToBool.updateValue(true, forKey: k)
                         }
-                        
                     }
-                    
-                    print("jsonToBool: \(jsonToBool)")
-                    
+                    //print("jsonToBool: \(jsonToBool)")
                     
                     self.addObject.dictionary = jsonToBool
                     self.addObject.saveToSingleton()
@@ -139,6 +163,11 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         task.resume()
     }
     //---------------------
+    // ***** Fonction: deselectCellsTable()
+    /*
+     *  Désélectionne les cellules et met en transparent
+     *
+     */
     func deselectCellsTable() {
         for i in 0..<addObject.dictionary.count {
             addObject.values[i] = false
@@ -147,21 +176,11 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         tableView.reloadData()
     }
     //---------------------
-    func replaceChars(originalStr: String, what: String, byWhat: String) -> String {
-        return originalStr.replacingOccurrences(of: what, with: byWhat)
-    }
-    //---------------------
-    override func viewDidLoad() {
-        
-        setValuesFalse()
-        super.viewDidLoad()
-        
-    }
-    //---------------------
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-    }
-    //---------------------
+    // ***** Fonction: setValuesFalse
+    /*
+     *  Met les valeurs de chaque clé à « false » dans le dictionary
+     *
+     */
     func setValuesFalse() {
         for (k, _) in Singleton.singletonInstance.dictionary {
             Singleton.singletonInstance.dictionary.updateValue(false, forKey: k)
@@ -174,6 +193,10 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         for i in 0..<addObject.values.count {
             addObject.values[i] = false
         }
+    }
+    //---------------------
+    func replaceChars(originalStr: String, what: String, byWhat: String) -> String {
+        return originalStr.replacingOccurrences(of: what, with: byWhat)
     }
     //---------------------
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -192,7 +215,6 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     //---------------------
     func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
         if addObject.values[indexPath.row] {
-            //cell.backgroundColor = UIColor(red: 118.0/255, green: 137.0/255, blue: 124.0/255, alpha: 1.0)
             cell.backgroundColor = UIColor.lightGray
         }
     }
@@ -203,11 +225,9 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         if !addObject.values[indexPath.row] {
             addObject.values[indexPath.row] = true
             addObject.saveValueToSingleton()
-            
         } else {
             addObject.values[indexPath.row] = false
             addObject.saveValueToSingleton()
-            
         }
         tableView.reloadData()
     }

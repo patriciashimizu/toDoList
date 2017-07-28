@@ -11,11 +11,11 @@ class SecondViewController: UIViewController, UITableViewDelegate, UITableViewDa
             if a == true {
                 dataTableFirstView.append(b)
             }
-            
         }
         super.viewDidLoad()
     }
     //---------------------------
+    // ***** Bouton: BACK
     @IBAction func back(_ sender: UIButton) {
         for (k, _) in Singleton.singletonInstance.dictionary {
             Singleton.singletonInstance.dictionary.updateValue(false, forKey: k)
