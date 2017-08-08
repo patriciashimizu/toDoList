@@ -24,7 +24,7 @@ class Add {
     func parseDict() {
         keys = []
         values = []
-        for (k, v) in dictionary {
+        for (k, v) in dictionary { //.sorted(by: {$0.0 < $1.0})
             keys.append(k)
             values.append(v)
         }
