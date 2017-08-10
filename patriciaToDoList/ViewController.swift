@@ -45,6 +45,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     //---------------------
     override func viewDidLoad() {
         setValuesFalse()
+        //print("keys: \(self.addObject.keys)")
         super.viewDidLoad()
     }
     //---------------------
@@ -87,7 +88,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
      *
      */
     func replaceDatabaseOnline() {
-        var urlToSend = "http://localhost/dashboard/shimizu/tp3_toDoList/add.php?json=["
+        var urlToSend = "http://localhost/dashboard/shimizu/json_php/add.php?json=["
         var counter = 0
         let total = addObject.dictionary.count
         for (a, b) in addObject.dictionary {
@@ -117,7 +118,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
      *
      */
     func downloadDatabaseOnline() {
-        let requestURL: NSURL = NSURL(string: "http://localhost/dashboard/shimizu/tp3_toDoList/data.json")!
+        let requestURL: NSURL = NSURL(string: "http://localhost/dashboard/shimizu/json_php/data.json")!
         let urlRequest: NSMutableURLRequest = NSMutableURLRequest(url:
             requestURL as URL)
         let session = URLSession.shared
@@ -133,7 +134,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
                 do{
                     let json = try JSONSerialization.jsonObject(with:
                         data!, options:.allowFragments)
-                    print(json)
+                    //print(json)
                     
                     //Dictionary
                     let jsonString: [String: String] = json as! [String : String]
@@ -147,17 +148,16 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
                             jsonToBool.updateValue(true, forKey: k)
                         }
                     }
-                    print("jsonToBool: \(jsonToBool)")
-                    print("keys: \(self.addObject.keys)")
+                    //print("jsonToBool: \(jsonToBool)")
                     
+                    self.addObject.dictionary = jsonToBool
+                    self.addObject.saveToSingleton()
+                    self.addObject.parseDict()
                     
-                    
-                    //DispatchQueue.main.async {
-                        self.addObject.dictionary = jsonToBool
-                        self.addObject.saveToSingleton()
-                        self.addObject.parseDict()
+                    DispatchQueue.main.async {
+                        
                         self.tableView.reloadData()
-                    //}
+                    }
                 }catch {
                     print("Erreur Json: \(error)")
                 }
