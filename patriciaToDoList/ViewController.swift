@@ -133,7 +133,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
                 do{
                     let json = try JSONSerialization.jsonObject(with:
                         data!, options:.allowFragments)
-                    //print(json)
+                    print(json)
                     
                     //Dictionary
                     let jsonString: [String: String] = json as! [String : String]
@@ -147,14 +147,17 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
                             jsonToBool.updateValue(true, forKey: k)
                         }
                     }
-                    //print("jsonToBool: \(jsonToBool)")
+                    print("jsonToBool: \(jsonToBool)")
+                    print("keys: \(self.addObject.keys)")
                     
-                    self.addObject.dictionary = jsonToBool
-                    self.addObject.saveToSingleton()
                     
-                    DispatchQueue.main.async {
+                    
+                    //DispatchQueue.main.async {
+                        self.addObject.dictionary = jsonToBool
+                        self.addObject.saveToSingleton()
+                        self.addObject.parseDict()
                         self.tableView.reloadData()
-                    }
+                    //}
                 }catch {
                     print("Erreur Json: \(error)")
                 }
