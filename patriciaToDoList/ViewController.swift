@@ -88,8 +88,8 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
      *
      */
     func replaceDatabaseOnline() {
-        var urlToSend = "http://localhost/dashboard/shimizu/json_php/add.php?json=["
-        //var urlToSend = "http://localhost/dashboard/geneau/poo2/add.php?json=["
+        //var urlToSend = "http://localhost/dashboard/shimizu/json_php/add.php?json=["
+        var urlToSend = "http://localhost/dashboard/geneau/poo2/add.php?json=["
         var counter = 0
         let total = addObject.dictionary.count
         for (a, b) in addObject.dictionary {
@@ -119,8 +119,8 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
      *
      */
     func downloadDatabaseOnline() {
-        let requestURL: NSURL = NSURL(string: "http://localhost/dashboard/shimizu/json_php/data.json")!
-        //let requestURL: NSURL = NSURL(string: "http://localhost/dashboard/geneau/poo2/data.json")!
+        //let requestURL: NSURL = NSURL(string: "http://localhost/dashboard/shimizu/json_php/data.json")!
+        let requestURL: NSURL = NSURL(string: "http://localhost/dashboard/geneau/poo2/data.json")!
         let urlRequest: NSMutableURLRequest = NSMutableURLRequest(url:
             requestURL as URL)
         let session = URLSession.shared
