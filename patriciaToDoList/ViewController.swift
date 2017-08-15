@@ -44,8 +44,6 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     }
     //---------------------
     override func viewDidLoad() {
-        setValuesFalse()
-        //print("keys: \(self.addObject.keys)")
         super.viewDidLoad()
     }
     //---------------------
@@ -179,25 +177,6 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
             tableView.backgroundColor = UIColor.clear
         }
         tableView.reloadData()
-    }
-    //---------------------
-    // ***** Fonction: setValuesFalse
-    /*
-     *  Met les valeurs de chaque clé à « false » dans le dictionary
-     *
-     */
-    func setValuesFalse() {
-        for (k, _) in Singleton.singletonInstance.dictionary {
-            Singleton.singletonInstance.dictionary.updateValue(false, forKey: k)
-        }
-        
-        for (k, _) in addObject.dictionary {
-            addObject.dictionary.updateValue(false, forKey: k)
-        }
-        
-        for i in 0..<addObject.values.count {
-            addObject.values[i] = false
-        }
     }
     //---------------------
     func replaceChars(originalStr: String, what: String, byWhat: String) -> String {

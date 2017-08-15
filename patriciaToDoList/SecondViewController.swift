@@ -17,9 +17,7 @@ class SecondViewController: UIViewController, UITableViewDelegate, UITableViewDa
     //---------------------------
     // ***** Bouton: BACK
     @IBAction func back(_ sender: UIButton) {
-        for (k, _) in Singleton.singletonInstance.dictionary {
-            Singleton.singletonInstance.dictionary.updateValue(false, forKey: k)
-        }
+
     }
     //---------------------------
     override func didReceiveMemoryWarning() {
@@ -47,6 +45,7 @@ class SecondViewController: UIViewController, UITableViewDelegate, UITableViewDa
     //---------------------
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == UITableViewCellEditingStyle.delete {
+            Singleton.singletonInstance.dictionary.updateValue(false, forKey: dataTableFirstView[indexPath.row])
             dataTableFirstView.remove(at: indexPath.row)
             tableView.deleteRows(at: [indexPath as IndexPath], with: UITableViewRowAnimation.automatic)
         }
