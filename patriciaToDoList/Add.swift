@@ -79,7 +79,7 @@ class Add {
             }
             i += 1
         }
-
+        
         Singleton.singletonInstance.dictionary = dictionary
         Singleton.singletonInstance.saveData()
     }
