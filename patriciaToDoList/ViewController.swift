@@ -1,7 +1,7 @@
 //==============================================
 import UIKit
 //==============================================
-class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSource  {
+class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, UITextFieldDelegate  {
     //---------------------
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var task_TextField: UITextField!
@@ -9,6 +9,20 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     let addObject = Add()
     var titleAlert: String!
     var messageAlert: String!
+    //---------------------
+    override func viewDidLoad() {
+        super.viewDidLoad()
+    }
+    //---------------------
+    override func didReceiveMemoryWarning() {
+        super.didReceiveMemoryWarning()
+    }
+    //---------------------
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool
+    {
+        textField.resignFirstResponder()
+        return true
+    }
     //---------------------
     // ***** Bouton: ADD TASK
     @IBAction func addTask(_ sender: UIButton) {
@@ -42,14 +56,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         messageAlert = "Do you really want to reset everything?"
         showAlert(title: titleAlert, message: messageAlert)
     }
-    //---------------------
-    override func viewDidLoad() {
-        super.viewDidLoad()
-    }
-    //---------------------
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-    }
+    
     //---------------------
     // ***** Fonction: showAlert
     /*
@@ -222,6 +229,5 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
             tableView.deleteRows(at: [indexPath as IndexPath], with: UITableViewRowAnimation.automatic)
         }
     }
-    //---------------------
 }
 //==============================================

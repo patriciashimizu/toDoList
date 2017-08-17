@@ -59,7 +59,7 @@
                                                 </constraints>
                                                 <nil key="textColor"/>
                                                 <fontDescription key="fontDescription" name="TravelingTypewriter" family="Traveling _Typewriter" pointSize="20"/>
-                                                <textInputTraits key="textInputTraits"/>
+                                                <textInputTraits key="textInputTraits" returnKeyType="done"/>
                                                 <variation key="default">
                                                     <mask key="constraints">
                                                         <exclude reference="FI5-Ob-nqg"/>
@@ -70,6 +70,9 @@
                                                         <include reference="FI5-Ob-nqg"/>
                                                     </mask>
                                                 </variation>
+                                                <connections>
+                                                    <outlet property="delegate" destination="BYZ-38-t0r" id="3Ce-nG-w7X"/>
+                                                </connections>
                                             </textField>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HWF-PD-lWk">
                                                 <rect key="frame" x="0.0" y="50" width="372.66666666666663" height="38"/>
