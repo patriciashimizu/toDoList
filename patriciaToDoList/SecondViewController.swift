@@ -3,35 +3,39 @@ import UIKit
 //==============================================
 class SecondViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     //---------------------
-    var dataTableFirstView = [""]
+    // MARK: ------ PROPERTIES
+    var DictionaryCopyValueTrue = [""]
     //---------------------
+    // MARK: ------ SYSTEM FUNCTIONS
     override func viewDidLoad() {
-        dataTableFirstView.remove(at: 0)
+        DictionaryCopyValueTrue.remove(at: 0)
         for(b, a) in Singleton.singletonInstance.dictionary{
             if a == true {
-                dataTableFirstView.append(b)
+                DictionaryCopyValueTrue.append(b)
             }
         }
         super.viewDidLoad()
-    }
-    //---------------------------
-    // ***** Bouton: BACK
-    @IBAction func back(_ sender: UIButton) {
-
     }
     //---------------------------
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
     }
     //---------------------------
+    // MARK: ------ BUTTONS
+    // ***** Bouton: BACK
+    @IBAction func back(_ sender: UIButton) {
+        
+    }
+    //---------------------------
+    // MARK: ------ TABLEVIEW FUNCTIONS
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         tableView.backgroundColor = UIColor.clear
-        return dataTableFirstView.count
+        return DictionaryCopyValueTrue.count
     }
     //---------------------
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell:UITableViewCell = UITableViewCell(style:UITableViewCellStyle.default, reuseIdentifier:"proto")
-        cell.textLabel!.text = dataTableFirstView[indexPath.row]
+        cell.textLabel!.text = DictionaryCopyValueTrue[indexPath.row]
         cell.textLabel?.textColor = UIColor.black
         cell.textLabel?.font = UIFont(name:"TravelingTypewriter", size:18)
         cell.backgroundColor = UIColor.clear
@@ -45,9 +49,9 @@ class SecondViewController: UIViewController, UITableViewDelegate, UITableViewDa
     //---------------------
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == UITableViewCellEditingStyle.delete {
-            Singleton.singletonInstance.dictionary.updateValue(false, forKey: dataTableFirstView[indexPath.row])
+            Singleton.singletonInstance.dictionary.updateValue(false, forKey: DictionaryCopyValueTrue[indexPath.row])
             Singleton.singletonInstance.saveData()
-            dataTableFirstView.remove(at: indexPath.row)
+            DictionaryCopyValueTrue.remove(at: indexPath.row)
             tableView.deleteRows(at: [indexPath as IndexPath], with: UITableViewRowAnimation.automatic)
         }
     }

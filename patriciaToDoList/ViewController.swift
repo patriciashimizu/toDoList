@@ -3,13 +3,16 @@ import UIKit
 //==============================================
 class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, UITextFieldDelegate  {
     //---------------------
+    // MARK: ------ OUTLETS
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var task_TextField: UITextField!
     //---------------------
+    // MARK: ------ PROPERTIES
     let addObject = Add()
     var titleAlert: String!
     var messageAlert: String!
     //---------------------
+    // MARK: ------ SYSTEM FUNCTIONS
     override func viewDidLoad() {
         super.viewDidLoad()
     }
@@ -24,6 +27,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         return true
     }
     //---------------------
+    // MARK: ------ BUTTONS
     // ***** Bouton: ADD TASK
     @IBAction func addTask(_ sender: UIButton) {
         addObject.addValue(keyToAdd: task_TextField.text!)
@@ -58,6 +62,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     }
     
     //---------------------
+    // MARK: ------ OTHER FUNCTIONS
     // ***** Fonction: showAlert
     /*
      *  Fait la création de la boite d’alerte pour les boutons SAVE, LOAD et RESET
@@ -190,6 +195,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         return originalStr.replacingOccurrences(of: what, with: byWhat)
     }
     //---------------------
+    // MARK: ------ TABLEVIEW FUNCTIONS
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         tableView.backgroundColor = UIColor.clear
         return addObject.dictionary.count

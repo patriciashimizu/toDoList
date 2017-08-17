@@ -3,10 +3,12 @@ import Foundation
 //==============================
 class Add {
     //---------------------------
+    // MARK: ------ PROPERTIES
     var dictionary: [String: Bool]!
     var keys: [String] = []
     var values: [Bool] = []
     //---------------------------
+    // MARK: ------ CONSTRUCTOR
     init() {
         if let dict = Singleton.singletonInstance.dictionary {
             dictionary = dict
@@ -16,6 +18,7 @@ class Add {
         parseDict()
     }
     //---------------------------
+    // MARK: ------ OTHER FUNCTIONS
     // ***** Fonction: parseDict
     /*
      *  Sauvegarde les clés et les valeurs du dictionnaire dans tableaux différents
