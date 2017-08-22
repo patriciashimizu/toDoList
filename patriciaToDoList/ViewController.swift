@@ -186,6 +186,8 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     func deselectCellsTable() {
         for i in 0..<addObject.dictionary.count {
             addObject.values[i] = false
+            Singleton.singletonInstance.dictionary.updateValue(false, forKey: addObject.keys[i])
+            Singleton.singletonInstance.saveData()
             tableView.backgroundColor = UIColor.clear
         }
         tableView.reloadData()
